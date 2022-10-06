@@ -1,13 +1,10 @@
 const express = require('express')
 const mongoose=require('mongoose')
+const manage=require('./routes/manage')
 const app = express()
 
 const port = 8000
 
-const user=require('./routes/user')
-const session=require('./routes/session')
-const post=require('./routes/post')
-const auth=require('./middleware/auth')
 
 const url='mongodb://localhost/facebook'
 mongoose.connect(url,{useNewUrlParser : true})
@@ -17,12 +14,8 @@ con.on("open",()=>{
     console.log('monogoDB conneted..!')
 })
 
-
-
 app.use(express.json())
-app.use('/user',auth,user)
-app.use('/session',session)
-app.use('/post',post)
+app.use('/manage',manage)
 
 
 app.listen(port, (req,res) => {
