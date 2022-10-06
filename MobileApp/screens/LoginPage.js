@@ -2,7 +2,7 @@ import React from "react"
 import {TouchableOpacity}from "react-native";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider } from "native-base";
 
- import {useNavigation } from '@react-navigation/native';
+import {useNavigation } from '@react-navigation/native';
 
 
 function LoginPage(){
