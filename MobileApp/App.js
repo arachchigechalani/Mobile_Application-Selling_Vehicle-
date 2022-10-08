@@ -9,6 +9,7 @@ import CreateAccountPage from './screens/CreateAccountPage';
 import ManageDetailsPage from './screens/ManageDetailsPage';
 import DetailsAddPage from './screens/DetailsAddPage';
 import DashBoard from './screens/DashBoard';
+import HomePage from './screens/HomePage';
 
 function HomeScreen() {
   return (
@@ -24,6 +25,13 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Home"
+          component={HomePage}
+        />
+
+
         <Stack.Screen
           options={{headerShown: false}}
           name="Login"
