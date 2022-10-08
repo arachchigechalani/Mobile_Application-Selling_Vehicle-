@@ -45,11 +45,14 @@ import { View, Text, Button,StyleSheet, ImageBackground, TouchableOpacity } from
 import React from 'react'
 
 import {Bubbles} from 'react-native-loader';
-import { Box, NativeBaseProvider, VStack } from 'native-base';
+import { Box, NativeBaseProvider, VStack ,Flex} from 'native-base';
+
+import {useNavigation } from '@react-navigation/native';
 
 
 function HomePage() {
-
+  const navigation = useNavigation();
+  
   return (
     <NativeBaseProvider>
       <ImageBackground
@@ -59,14 +62,18 @@ function HomePage() {
           style={{
             flex: 1,
           }}>
-          <Box style={{height:10}}>
-            <TouchableOpacity style={styles.button1}>
-              <Text>Register</Text>
+          <Flex direction="row-reverse" mb="2.5" mt="1.5">
+            <TouchableOpacity
+              style={styles.button1}
+              onPress={() => {
+                navigation.navigate('LoginPage', {name: 'Jane'});
+              }}>
+              <Text style={{color: '#c9c0c0'}}>Register</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2}>
-              <Text>Login</Text>
+              <Text style={{color: '#c9c0c0'}}>Login</Text>
             </TouchableOpacity>
-          </Box>
+          </Flex>
 
           <Box>
             <Text
@@ -85,7 +92,7 @@ function HomePage() {
               <Text style={styles.innerText}> loading</Text>
             </Text>
 
-            <Bubbles size={10} color="#fdfdfd" />
+            <Bubbles size={9} color="#fdfdfd" />
           </Box>
         </VStack>
       </ImageBackground>
@@ -103,15 +110,15 @@ const styles = StyleSheet.create({
   },
   button1: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#2c3331',
     padding: 10,
     width:80
   },
   button2: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#2c3331',
     padding: 10,
-    width:80
+    width:80,
   },
 });
 
