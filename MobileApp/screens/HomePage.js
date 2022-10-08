@@ -41,38 +41,79 @@
 
 
 
-import { View, Text, Button,StyleSheet } from 'react-native'
+import { View, Text, Button,StyleSheet, ImageBackground, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 import {Bubbles} from 'react-native-loader';
 import { Box, NativeBaseProvider, VStack } from 'native-base';
 
 
-
 function HomePage() {
 
   return (
     <NativeBaseProvider>
-      <VStack  style={{flex: 1, backgroundColor: '#61d2c5'}}>
-        
-        <Text style={styles.text}>WELCOME TO HIRU CAR SALEEEE</Text>
+      <ImageBackground
+        source={require('../assets/car.jpg')}
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <VStack
+          style={{
+            flex: 1,
+          }}>
+          <Box style={{height:10}}>
+            <TouchableOpacity style={styles.button1}>
+              <Text>Register</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button2}>
+              <Text>Login</Text>
+            </TouchableOpacity>
+          </Box>
 
-        
+          <Box>
+            <Text
+              style={{
+                color: '#c9c0c0',
+                marginTop: 222,
+                marginBottom: 56,
+                fontSize: 29,
+                fontWeight: 'bold',
+                justifyContent: 'center',
+              }}>
+              WELCOME TO HIRU CAR SALEEEE
+            </Text>
+            <Text style={styles.baseText}>
+              Wait For
+              <Text style={styles.innerText}> loading</Text>
+            </Text>
 
-        <Bubbles size={10} color="#fdfdfd" />
-        
-      </VStack>
+            <Bubbles size={10} color="#fdfdfd" />
+          </Box>
+        </VStack>
+      </ImageBackground>
     </NativeBaseProvider>
   );
 }
 
 const styles = StyleSheet.create({
-    text:{
-      color:'#0e0808',
-      fontSize:30,
-      
-    }
-})
+  baseText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  innerText: {
+    color: 'red',
+  },
+  button1: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    width:80
+  },
+  button2: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    width:80
+  },
+});
 
 export default HomePage
 
