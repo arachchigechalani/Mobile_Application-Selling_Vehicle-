@@ -45,7 +45,7 @@ function LoginPage(){
 
             <VStack space={3} mt="5">
               <FormControl>
-                <FormControl.Label>Email ID</FormControl.Label>
+                <FormControl.Label>User Name</FormControl.Label>
                 <Input
                   onChangeText={text => {
                     setUserName(text);
