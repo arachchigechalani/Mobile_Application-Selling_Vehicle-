@@ -1,20 +1,22 @@
 import React, {useState} from 'react';
 
-import {View, Text, ScrollView, Image,Alert} from 'react-native';
+import {View, Text, ScrollView, Image,Alert, TouchableOpacity} from 'react-native';
 import CustomeAlert from '../components/alerts/CustomAlert';
 
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {NativeBaseProvider, Box, Button, TextArea, Input,} from 'native-base';
-import {BASE_URL} from '@env';
-var Environment = require('../environment');
+
 
 function DetailsAddPage() {
   const [image, setImage] = useState('');
   const[change,setChage]=useState(false);
+  const[title,setTitle]=useState('');
+  const[desc,setDesc]=useState('')
 
   const delayChageTime=()=>{
        setChage(false);
   }
+  
 
   const openCamera = () => {
     const options = {
@@ -70,7 +72,7 @@ function DetailsAddPage() {
               height="40"
               flexDirection="column"
               justifyContent="space-around">
-              <Button
+              <Button style={{}}
                 onPress={async () => {
                   openCamera();
                 }}>
@@ -119,6 +121,8 @@ function DetailsAddPage() {
               alignItems="center"
               justifyContent="space-around">
               <Input
+                onChangeText={text => setTitle(text)}
+                value={title}
                 mb="4"
                 shadow={2}
                 _light={{
@@ -142,6 +146,10 @@ function DetailsAddPage() {
                 placeholder="Title"
               />
               <TextArea
+
+                onChangeText={desc => setDesc(desc)}
+                value={desc}
+
                 width="100%"
                 height="100%"
                 placeholder="Text Area Placeholder"
@@ -156,6 +164,10 @@ function DetailsAddPage() {
               mt="4"
               onPress={async () => {
                 console.log('oooooook');
+                // fetch('https://192.168.8.152/manage/addDetails')
+                // .then(response => response.json())
+                // .then(json => console.log(json)) 
+                
                 fetch('https://jsonplaceholder.typicode.com/posts', {
                   method: 'POST',
                   headers: {
@@ -163,13 +175,15 @@ function DetailsAddPage() {
                     'Content-Type': 'application/json',
                   },
                   body: JSON.stringify({
-                    title: 'ABC',
-                    desc: 'khbfkjvhbgkjhbkjgnbkj',
+                    title: {title},
+                    desc: {desc},
                     image: {image},
                   }),
                 })
                   .then(response => response.json())
                   .then(json => {
+                    //alert(json)
+                    //console.log(json)
                     setChage(true);
                     setTimeout(delayChageTime, 3000);
                   })
@@ -189,11 +203,15 @@ function DetailsAddPage() {
             </Button>
           </Box>
         </ScrollView>
-        <CustomeAlert 
-          bgcolor={"blue"}
+
+
+        <CustomeAlert
+          bgcolor={'blue'}
           isAnimate={change}
           text="Details Addedd Completed"
-       />
+        />
+
+
       </Box>
     </NativeBaseProvider>
   );

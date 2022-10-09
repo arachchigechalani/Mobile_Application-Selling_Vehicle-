@@ -3,10 +3,10 @@ const mongoose=require('mongoose')
 const manage=require('./routes/manage')
 const app = express()
 
-const port = 8000
+const port = 4000
 
 
-const url='mongodb://localhost/facebook'
+const url='mongodb://localhost/MobileApp'
 mongoose.connect(url,{useNewUrlParser : true})
 const con=mongoose.connection
 
@@ -19,5 +19,5 @@ app.use('/manage',manage)
 
 
 app.listen(port, (req,res) => {
-  console.log(`server API started on port 8000`)
+  console.log(`server API started on port 4000`)
 })

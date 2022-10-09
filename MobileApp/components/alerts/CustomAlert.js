@@ -38,7 +38,15 @@ function CustomeAlert(props){
     [props.isAnimate],
   );
 
+// const getTextColor = variant => {
+//     switch (variant) {
+//       case "solid":
+//         return "warmGray.50";
+//     }
+//   };
 
+
+// {["solid"].map(key => {
 
 
   return(
@@ -57,7 +65,7 @@ function CustomeAlert(props){
       > 
        <Alert
 
-              
+                          //variant={key}
                           w="100%"  colorScheme="success" status="success">
                           <VStack space={2} flexShrink={1} w="100%">
                           <HStack flexShrink={1} space={2} alignItems="center" justifyContent="center">

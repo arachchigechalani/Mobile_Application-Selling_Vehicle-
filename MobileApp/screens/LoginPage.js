@@ -11,7 +11,8 @@ function LoginPage(){
     return(
 
 <NativeBaseProvider>
-<Center  flex={1} bg="#fff" alignItems="center" justifyContent="center"  w="100%">
+  
+<Center style={{backgroundColor:'#52b5b0'}} flex={1} bg="#fff" alignItems="center" justifyContent="center"  w="100%">
         <Box safeArea p="2" py="8" w="90%" maxW="290">
           <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
           color: "warmGray.50"
@@ -35,12 +36,12 @@ function LoginPage(){
               <Link _text={{
               fontSize: "xs",
               fontWeight: "500",
-              color: "indigo.500"
+              color: "#551a07.500"
             }} alignSelf="flex-end" mt="1">
                 Forget Password?
               </Link>
             </FormControl>
-            <Button mt="2" colorScheme="indigo"
+            <Button mt="2" colorScheme="#2a1342"
                onPress={() =>{
                 navigation.navigate('DashBoard', { name: 'Jane' })
                }}
