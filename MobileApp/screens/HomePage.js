@@ -63,15 +63,20 @@ function HomePage() {
             flex: 1,
           }}>
           <Flex direction="row-reverse" mb="2.5" mt="1.5">
-            <TouchableOpacity
-              style={styles.button1}
-              onPress={() => {
-                navigation.navigate('LoginPage', {name: 'Jane'});
-              }}>
-              <Text style={{color: '#c9c0c0'}}>Register</Text>
+            <TouchableOpacity style={styles.button1}>
+              <Text
+                style={{color: '#c9c0c0', fontWeight: 'bold', fontSize: 15}}>
+                Register
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2}>
-              <Text style={{color: '#c9c0c0'}}>Login</Text>
+              <Text
+                style={{color: '#c9c0c0', fontWeight: 'bold', fontSize: 15}}
+                onPress={() => {
+                  navigation.navigate("Login")
+                }}>
+                Login
+              </Text>
             </TouchableOpacity>
           </Flex>
 
@@ -79,14 +84,20 @@ function HomePage() {
             <Text
               style={{
                 color: '#c9c0c0',
-                marginTop: 222,
+                marginTop: 206,
                 marginBottom: 56,
                 fontSize: 29,
                 fontWeight: 'bold',
                 justifyContent: 'center',
               }}>
-              WELCOME TO HIRU CAR SALEEEE
+              WELCOME TO HIRU CAR SALE
             </Text>
+
+            <Text style={styles.innerText}>CAR SALE HIRU ,</Text>
+            <Text style={{fontWeight: 'bold', marginBottom: 21}}>
+              is the best place to buy your choice.
+            </Text>
+
             <Text style={styles.baseText}>
               Wait For
               <Text style={styles.innerText}> loading</Text>
@@ -102,23 +113,23 @@ function HomePage() {
 
 const styles = StyleSheet.create({
   baseText: {
-    color: '#fff',
+    color: '#e4e4e4',
     fontWeight: 'bold',
   },
   innerText: {
-    color: 'red',
+    color: '#050c48',
   },
   button1: {
     alignItems: 'center',
     backgroundColor: '#2c3331',
     padding: 10,
-    width:80
+    width:89
   },
   button2: {
     alignItems: 'center',
     backgroundColor: '#2c3331',
     padding: 10,
-    width:80,
+    width:83,
   },
 });
 
